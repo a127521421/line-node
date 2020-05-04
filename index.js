@@ -15,6 +15,10 @@ const bot = linebot({
   channelAccessToken: process.env.CHANNEL_ACCESS_TOKEN
 })
 
+const delHtmlTag = (str) => {
+  return str.replace(/<[^>]+>/g, '')// 去掉所有的html標記
+}
+
 // 當收到訊息時
 // bot.on('message', event => {
 //   if (event.message.type === 'text') {
@@ -25,8 +29,13 @@ const bot = linebot({
 bot.on('message', async (event) => {
   let msg = ''
   try {
-    const data = await rp({ uri: 'https://kktix.com/events.json', json: true })
-    msg = data.entry[0].title
+    // const data = await rp({ uri: 'https://kktix.com/events.json', json: true })
+    const data = await rp({ uri: 'https://api.hearthstonejson.com/v1/45932/zhTW/cards.collectible.json', json: true })
+    for (let i = 0; i <= 2536; i++) {
+      if (event.message.text === data[i].name) {
+        msg = `花費:${data[i].cost}\n趣味說明: ${data[i].flavor}\n效果:${delHtmlTag(data[i].text)}`
+      }
+    }
   } catch (error) {
     msg = '發生錯誤'
   }
