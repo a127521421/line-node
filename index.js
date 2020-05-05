@@ -37,11 +37,13 @@ bot.on('message', async (event) => {
     for (let i = 0; i <= 2536; i++) {
       if (event.message.text === data[i].name && data[i].cost !== undefined) {
         msg = ([
+          // 數據
           {
             type: 'text',
             text: `花費:${data[i].cost}\n職業:${data[i].cardClass}\n攻擊:${data[i].attack !== undefined ? data[i].attack : r
               }\n血量:${data[i].health !== undefined ? data[i].health : r} \n效果: ${delHtmlTag(data[i].text)}\n趣味說明: ${data[i].flavor} `
           },
+          // 圖片
           { type: 'image', originalContentUrl: `https://art.hearthstonejson.com/v1/render/latest/zhTW/256x/${data[i].id}.png`, previewImageUrl: `https://art.hearthstonejson.com/v1/render/latest/zhTW/256x/${data[i].id}.png` }
         ])
         break
