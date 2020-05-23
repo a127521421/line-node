@@ -41,7 +41,7 @@ bot.on('message', async (event) => {
           // 數據
           {
             type: 'text',
-            text: `花費:${data[i].cost}\n職業:${data[i].cardClass === 'DEMONHUNTER' ? '惡魔獵人' : data[i].cardClass === 'NEUTRAL' ? '中立' : data[i].cardClass === 'MAGE' ? '法師' : data[i].cardClass === 'PRIEST' ? '牧師' : data[i].cardClass === 'ROGUE' ? '盜賊' : data[i].cardClass === 'DRUID' ? '德魯伊' : data[i].cardClass === 'HUNTER' ? '獵人' : data[i].cardClass === 'WARRIOR' ? '戰士' : data[i].cardClass === 'SHAMAN' ? '薩滿' : data[i].cardClass === 'WARLOCK' ? '術士' : data[i].cardClass === 'PALADIN' ? '聖騎士' : '?'}\n攻擊:${data[i].attack !== undefined ? data[i].attack : r}\n血量:${data[i].health !== undefined ? data[i].health : r} \n效果: ${delHtmlTag(data[i].text)}\n趣味說明: ${data[i].flavor} `
+            text: `花費:${data[i].cost}\n職業:${data[i].cardClass === 'DEMONHUNTER' ? '惡魔獵人' : data[i].cardClass === 'NEUTRAL' ? '中立' : data[i].cardClass === 'MAGE' ? '法師' : data[i].cardClass === 'PRIEST' ? '牧師' : data[i].cardClass === 'ROGUE' ? '盜賊' : data[i].cardClass === 'DRUID' ? '德魯伊' : data[i].cardClass === 'HUNTER' ? '獵人' : data[i].cardClass === 'WARRIOR' ? '戰士' : data[i].cardClass === 'SHAMAN' ? '薩滿' : data[i].cardClass === 'WARLOCK' ? '術士' : data[i].cardClass === 'PALADIN' ? '聖騎士' : '?'}\n攻擊:${data[i].attack !== undefined ? data[i].attack : r}\n血量:${data[i].health !== undefined ? data[i].health : r} \n效果: ${delHtmlTag(data[i].text)}\n趣味說明: ${delHtmlTag(data[i].flavor)}`
           },
           // 圖片
           { type: 'image', originalContentUrl: `https://art.hearthstonejson.com/v1/render/latest/zhTW/256x/${data[i].id}.png`, previewImageUrl: `https://art.hearthstonejson.com/v1/render/latest/zhTW/256x/${data[i].id}.png` }
